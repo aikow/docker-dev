@@ -1,6 +1,7 @@
 base-devel
 bat
 cmake
+curl
 exa
 fd
 fish
@@ -8,11 +9,12 @@ fzf
 git
 jq
 man-db
-neovim
+mc
 npm
 nushell
 parallel
 python
+ripgrep
 rustup
 starship
 tmux

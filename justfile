@@ -7,8 +7,11 @@ format:
   sort -o install.conf install.conf
 
 build os:
-  docker build --file {{os}}/Dockerfile --tag "aiko-dev-{{os}}:$(date "+%Y-%m-%d")" .
+  docker build \
+  --file {{os}}/Dockerfile \
+  --tag aiko-dev-{{os}}:latest \
+  .
+  docker tag aiko-dev-{{os}}:latest "aiko-dev-{{os}}:$(date "+%Y-%m-%d")"
 
 run os: (build os)
-  docker run --rm --interactive --tty \
-  "$(docker image ls --format "{{{{.Repository}}:{{{{.Tag}}" | grep "^aiko-dev-{{os}}:" | head -n1)"
+  docker run --rm --interactive --tty  aiko-dev-{{os}}:latest
